@@ -10,7 +10,8 @@
 {{- if ge $limit 1 -}}
   {{- $pages = $pages | first $limit -}}
 {{- end -}}
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+{{- /* Literal `<?xml ...?>` would be HTML-escaped by Hugo into `&lt;?xml`, which breaks the feed. Output it via safeHTML, same as Hugo's internal RSS template. */ -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ .Site.Title }}</title>
