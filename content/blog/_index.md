@@ -2,7 +2,7 @@
 title: "Blog"
 linkTitle: "Blog"
 description: >
-  News, release notes, deep dives, and tutorials for Injectify.
+  Personal blog about Dart, Flutter, and software engineering.
 ---
 
-Welcome to the Injectify blog! Here we share release notes, architecture deep dives, and practical guides for building modular Dart & Flutter applications.
+Welcome to my blog! Here I share practical guides, architecture deep dives, and lessons learned from building software with Dart and Flutter.

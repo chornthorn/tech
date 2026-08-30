@@ -1213,3 +1213,123 @@ h1, h2, h3, h4, h5, h6,
     }
   }
 }
+
+// 17. Custom Blog Home Hero (reuses the standard hero background)
+.td-home-hero {
+  @include media-breakpoint-up(md) {
+    padding-top: calc(5.5rem + #{$td-navbar-min-height}) !important;
+    padding-bottom: 5rem !important;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 4.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  &__eyebrow {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    color: #ffffff !important;
+    font-size: 3.25rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+
+    @include media-breakpoint-down(md) {
+      font-size: 2.25rem !important;
+    }
+  }
+
+  &__lead {
+    position: relative;
+    z-index: 1;
+    margin: 1.25rem auto 0;
+    max-width: 640px;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+
+    .btn {
+      min-width: 10rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+  }
+}
+
+// 18. Home Page Layout & Latest Post Cards
+main.td-home-main {
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+.td-home-posts {
+  &__rss {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--bs-secondary-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--bs-primary);
+    }
+  }
+
+  &__card {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: var(--bs-primary);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__date {
+    font-size: 0.8125rem;
+    color: var(--bs-secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  &__link {
+    position: relative;
+    z-index: 1;
+    color: var(--bs-primary);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+}

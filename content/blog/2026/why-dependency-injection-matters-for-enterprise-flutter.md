@@ -321,4 +321,4 @@ Dependency Injection begins as a foundational Dart design pattern: programming t
 
 **Injectify** bridges the gap between clean object-oriented architecture and enterprise development velocity, delivering automated registration, compile-time safety, environment switching, and modular micro-package support.
 
-To start integrating Injectify into your project, check out our [Getting Started Guide](/docs/getting-started/) and explore the [Micro-Packages Guide](/docs/concepts/micro-packages/).
+To start integrating Injectify into your project, check out the [Injectify repository](https://github.com/chornthorn/injectify-dart) and the [package on pub.dev](https://pub.dev/packages/injectify).

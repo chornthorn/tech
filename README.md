@@ -1,62 +1,58 @@
-# Injectify Documentation Site (Hugo + Docsy)
+# Tech Blog
 
-This directory contains the official documentation website for **Injectify**, built with **Hugo Extended** and the **Google Docsy Theme**.\n\n---\n\n## Running the Documentation Locally
+Personal tech blog built with **Hugo Extended** and the **Google Docsy Theme**, published at [https://chornthorn.github.io/tech/](https://chornthorn.github.io/tech/).
 
-### 1. Prerequisites
+## Prerequisites
 
 - **Hugo Extended** (`v0.160+`):
   ```bash
   brew install hugo
   ```
-- **Node.js** (`v18+`) & **npm**:
-  ```bash
-  cd docs
-  npm install
-  ```
+- **Node.js** (`v18+`) & **npm**
 
-### 2. Start the Local Server
+## Local Setup
 
 ```bash
-cd docs
+npm install
 npm run serve
 # or directly:
 hugo server --disableFastRender
 ```
 
-Navigate to `http://localhost:1313/injectify-dart/` in your browser. Live reloading is enabled by default.
+Navigate to `http://localhost:1313/tech/` in your browser. Live reloading is enabled by default.
 
-### 3. Build Static HTML
+## Build Static HTML
 
 ```bash
-cd docs
 npm run build
 # or:
 hugo --minify
 ```
 
-The compiled static site will be output to `docs/public/`.
+The compiled static site is output to `public/`.
 
----\n\n## Site Architecture & Directory Structure
+## Content
+
+This site contains **blog posts only** — write new posts under `content/blog/<year>/`:
 
 ```
-docs/
-├── hugo.toml                 # Hugo & Docsy configuration
-├── package.json              # Docsy asset dependencies (Bootstrap 5, FontAwesome, PostCSS)
-├── go.mod                    # Hugo module definition (Docsy theme)
-├── assets/
-│   └── scss/
-│       ├── _variables_project.scss # Typography, color palette, and Bootstrap overrides
-│       └── _styles_project.scss    # Custom layout, responsive sidebar, and theme rules
-└── content/
-    ├── _index.md             # Landing page with hero banner & feature cards
-    ├── blog/                 # Blog: news, release notes, deep dives
-    │   ├── _index.md         # Blog landing page (year-grouped post list, RSS)
-    │   └── 2026/             # Posts grouped by year in the URL (e.g. /blog/2026/<post>/)
-    └── docs/
-        ├── _index.md         # Main documentation map
-        ├── getting-started/  # Installation, Quickstart, Monorepos
-        ├── concepts/         # Architecture, Scopes, Micro-Packages, Environments
-        ├── tasks/            # How-to step-by-step recipes
-        ├── tutorials/        # End-to-end full walkthroughs
-        └── reference/        # Annotations, Configuration, APIs, Glossary
+content/
+└── blog/
+    ├── _index.md             # Blog landing page (year-grouped post list, RSS)
+    └── 2026/                 # Posts grouped by year in the URL (e.g. /blog/2026/<post>/)
+        ├── _index.md
+        └── <post>.md
 ```
+
+The home page (`layouts/home.html`) shows the three latest posts and renders
+the About section from `content/_index.md`.
+
+## Environment Variables
+
+None.
+
+## Deployment (GitHub Pages)
+
+The site is a GitHub Pages **project site** for the `chornthorn/tech` repository, so `baseURL` is `https://chornthorn.github.io/tech/`.
+
+Build with `hugo --minify` and publish the `public/` directory — e.g. via a GitHub Actions workflow or by pushing `public/` to the `gh-pages` branch.

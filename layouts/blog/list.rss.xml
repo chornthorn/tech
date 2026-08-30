@@ -1,0 +1,35 @@
+{{/* Blog section RSS feed.
+
+  The default Hugo RSS template only lists a section's *direct* children,
+  which misses posts nested in year sub-sections (content/blog/2026/).
+  This template lists all regular pages of the site (every regular page is
+  a blog post on this site), matching the HTML listing in layouts/blog/list.html.
+*/ -}}
+{{- $pages := .Site.RegularPages -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+  {{- $pages = $pages | first $limit -}}
+{{- end -}}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ .Site.Params.description }}</description>
+    <generator>Hugo</generator>
+    <language>{{ .Site.Language.LanguageCode | default "en" }}</language>
+    {{ with .OutputFormats.Get "rss" -}}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml"/>
+    {{- end }}
+    {{ range $pages -}}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ with .Description | default .Summary }}{{ . | html }}{{ end }}</description>
+      {{ with .Params.author }}<author>{{ . }}</author>{{ end }}
+    </item>
+    {{ end -}}
+  </channel>
+</rss>
