@@ -1,0 +1,27 @@
+# Hugo build output & generated files
+/public/
+/resources/_gen/
+.hugo_build.lock
+.hugo_build.log
+hugo_stats.json
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors & IDEs
+.idea/
+.vscode/
+*.swp
